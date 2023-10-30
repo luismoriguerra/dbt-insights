@@ -1,0 +1,4 @@
+
+timeout 120s ./cloudquery sync external-sync/sync.yml
+timeout 120s ./cloudquery sync external-sync/sync-activities.yml
+timeout 120s ./cloudquery sync external-sync/sync-members.yml

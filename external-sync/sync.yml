@@ -1,0 +1,36 @@
+kind: source
+spec:
+  name: crowddev-source
+  path: cloudquery/postgresql
+  version: "v3.0.6"
+  tables: [
+      "integrations",
+      "memberattributesettings",
+      "memberidentities",
+      "memberorganizations",
+      "membersegmentaffiliations",
+      "membersegments",
+      "membertags",
+      "organizationidentities",
+      "organizationsegments",
+      "organizations",
+      "segmentactivitychannels",
+      "segments",
+      "tags",
+      "type_map",
+    ]
+  destinations: ["postgresql"]
+  spec:
+    cdc: false
+    pgx_log_level: debug
+    connection_string: "postgresql://crowd:JB6UvZ1FgiKo8eKpdoqFntMPshtcIWU9@localhost:5000/crowd?sslmode=disable"
+---
+kind: destination
+spec:
+  name: "postgresql"
+  path: cloudquery/postgresql
+  version: "v6.1.0"
+  write_mode: "overwrite-delete-stale"
+  spec:
+    connection_string: "postgresql://postgres:@localhost:5432/postgres?sslmode=disable"
+
